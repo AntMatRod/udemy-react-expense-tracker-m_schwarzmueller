@@ -1,19 +1,28 @@
 import './ExpenseItem.css'
+import ExpenseDate from './ExpenseDate'
 
-function ExpenseItem() {
-  const expenseDate = new Date(2022, 5, 20)
-  const expenseTitle = 'Car insurance'
-  const expenseAmount = 294.55
-
+// aem7
+function ExpenseItem({ expenses }) {
   return (
     <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
+      <ExpenseDate date={expenses.date} />
       <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">${expenseAmount}</div>
+        <h2>{expenses.title}</h2>
+        <div className="expense-item__price">${expenses.amount}</div>
       </div>
     </div>
   )
 }
 
 export default ExpenseItem
+
+/** aem7
+ *
+ * props is an object that contains all data passed by parent component
+ * as key:value pairs.
+ *
+ * toLocaleString()
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
+ *
+ */
