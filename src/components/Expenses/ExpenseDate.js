@@ -1,3 +1,4 @@
+import Card from '../UI/Card'
 import './ExpenseDate.css'
 
 // aem7
@@ -9,11 +10,11 @@ function ExpenseDate({ date }) {
   const day = date.toLocaleString('en-US', { day: 'numeric' })
 
   return (
-    <div className="expense-date">
+    <Card className="expense-date">
       <div className="expense-date__month">{month}</div>
       <div className="expense-date__year">{year}</div>
       <div className="expense-date__day">{day}</div>
-    </div>
+    </Card>
   )
 }
 
