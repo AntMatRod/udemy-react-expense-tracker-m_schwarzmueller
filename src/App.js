@@ -1,11 +1,12 @@
-// import logo from './logo.svg'
-// import './App.css'
+import { useState } from 'react'
 
-import Expenses from './components/Expenses/ExpensesAll'
+import ExpensesAll from './components/Expenses/ExpensesAll'
+import NewExpense from './components/NewExpense/NewExpense'
 
+// aem7
 function App() {
   // dummy data
-  const expenses = [
+  const DUMMY_EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -26,19 +27,26 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ]
+
+  // init expenses with dummy data
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
+
+  // send data from child to parent by passing
+  // handler function to child and executing it there
+  // add new expense to existing dummy data expense using the prevState
+  // pattern in arrow function
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevState) => {
+      return [expense, ...prevState]
+    })
+  }
+
   return (
     <div>
-      <h1> Expense Tracker App</h1>
+      <NewExpense onAddExpense={addExpenseHandler} />
+
       <div className="expenses">
-        {expenses.map((expense) => (
-          <Expenses
-            key={expense.id}
-            {...expense}
-            // title={expense.title}
-            // amount={expense.amount}
-            // date={expense.date}
-          />
-        ))}
+        <ExpensesAll expenses={expenses} />
       </div>
     </div>
   )

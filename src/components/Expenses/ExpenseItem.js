@@ -27,3 +27,23 @@ export default ExpenseItem
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
  *
  */
+
+/**  CODE SNIPPETS
+ * // define counter outside function due to state changes overwriting
+// let cc = 0
+
+  // let [counter, setCounter] = useState(0)
+
+
+   // start using state
+  const [title, setTitle] = useState(expenses.title)
+
+  // add button event
+  // const clickHandler = () => {
+  //   setCounter(counter++)
+  //   setTitle(`Titel has been changed ${counter} times!`)
+  // }
+
+         <button onClick={clickHandler}>Change Title</button> 
+
+ */
